@@ -1,0 +1,714 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree"
+      },
+      "python-queue-tasks": {
+        "id": "python-queue-tasks",
+        "path": "python-queue-tasks",
+        "children": {
+          "python-queue-tasks": {
+            "id": "python-queue-tasks",
+            "path": "python-queue-tasks/python-queue-tasks",
+            "children": {
+              "VPC": {
+                "id": "VPC",
+                "path": "python-queue-tasks/python-queue-tasks/VPC",
+                "children": {
+                  "PublicSubnet1": {
+                    "id": "PublicSubnet1",
+                    "path": "python-queue-tasks/python-queue-tasks/VPC/PublicSubnet1"
+                  },
+                  "PublicSubnet2": {
+                    "id": "PublicSubnet2",
+                    "path": "python-queue-tasks/python-queue-tasks/VPC/PublicSubnet2"
+                  },
+                  "PublicSubnet3": {
+                    "id": "PublicSubnet3",
+                    "path": "python-queue-tasks/python-queue-tasks/VPC/PublicSubnet3"
+                  },
+                  "PrivateSubnet1": {
+                    "id": "PrivateSubnet1",
+                    "path": "python-queue-tasks/python-queue-tasks/VPC/PrivateSubnet1"
+                  },
+                  "PrivateSubnet2": {
+                    "id": "PrivateSubnet2",
+                    "path": "python-queue-tasks/python-queue-tasks/VPC/PrivateSubnet2"
+                  },
+                  "PrivateSubnet3": {
+                    "id": "PrivateSubnet3",
+                    "path": "python-queue-tasks/python-queue-tasks/VPC/PrivateSubnet3"
+                  }
+                }
+              },
+              "SDNamespace": {
+                "id": "SDNamespace",
+                "path": "python-queue-tasks/python-queue-tasks/SDNamespace"
+              },
+              "ECSCluster": {
+                "id": "ECSCluster",
+                "path": "python-queue-tasks/python-queue-tasks/ECSCluster"
+              },
+              "ServicesSecGrp": {
+                "id": "ServicesSecGrp",
+                "path": "python-queue-tasks/python-queue-tasks/ServicesSecGrp"
+              }
+            }
+          },
+          "mi_repositorio": {
+            "id": "mi_repositorio",
+            "path": "python-queue-tasks/mi_repositorio"
+          },
+          "QueueProcessingService": {
+            "id": "QueueProcessingService",
+            "path": "python-queue-tasks/QueueProcessingService",
+            "children": {
+              "EcsProcessingDeadLetterQueue": {
+                "id": "EcsProcessingDeadLetterQueue",
+                "path": "python-queue-tasks/QueueProcessingService/EcsProcessingDeadLetterQueue",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "python-queue-tasks/QueueProcessingService/EcsProcessingDeadLetterQueue/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::SQS::Queue",
+                      "aws:cdk:cloudformation:props": {
+                        "messageRetentionPeriod": 1209600
+                      }
+                    }
+                  }
+                }
+              },
+              "EcsProcessingQueue": {
+                "id": "EcsProcessingQueue",
+                "path": "python-queue-tasks/QueueProcessingService/EcsProcessingQueue",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "python-queue-tasks/QueueProcessingService/EcsProcessingQueue/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::SQS::Queue",
+                      "aws:cdk:cloudformation:props": {
+                        "redrivePolicy": {
+                          "deadLetterTargetArn": {
+                            "Fn::GetAtt": [
+                              "QueueProcessingServiceEcsProcessingDeadLetterQueueD47A7C6B",
+                              "Arn"
+                            ]
+                          },
+                          "maxReceiveCount": 3
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "SQSDeadLetterQueue": {
+                "id": "SQSDeadLetterQueue",
+                "path": "python-queue-tasks/QueueProcessingService/SQSDeadLetterQueue"
+              },
+              "SQSDeadLetterQueueArn": {
+                "id": "SQSDeadLetterQueueArn",
+                "path": "python-queue-tasks/QueueProcessingService/SQSDeadLetterQueueArn"
+              },
+              "SQSQueue": {
+                "id": "SQSQueue",
+                "path": "python-queue-tasks/QueueProcessingService/SQSQueue"
+              },
+              "SQSQueueArn": {
+                "id": "SQSQueueArn",
+                "path": "python-queue-tasks/QueueProcessingService/SQSQueueArn"
+              },
+              "QueueProcessingTaskDef": {
+                "id": "QueueProcessingTaskDef",
+                "path": "python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef",
+                "children": {
+                  "TaskRole": {
+                    "id": "TaskRole",
+                    "path": "python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/TaskRole",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/TaskRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "ecs-tasks.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/TaskRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/TaskRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "sqs:ReceiveMessage",
+                                        "sqs:ChangeMessageVisibility",
+                                        "sqs:GetQueueUrl",
+                                        "sqs:DeleteMessage",
+                                        "sqs:GetQueueAttributes"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::GetAtt": [
+                                          "QueueProcessingServiceEcsProcessingQueue552F0B37",
+                                          "Arn"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Action": "ec2:DescribeSubnets",
+                                      "Effect": "Allow",
+                                      "Resource": "*"
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "QueueProcessingServiceQueueProcessingTaskDefTaskRoleDefaultPolicyAE808B19",
+                                "roles": [
+                                  {
+                                    "Ref": "QueueProcessingServiceQueueProcessingTaskDefTaskRole782B79A6"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ECS::TaskDefinition",
+                      "aws:cdk:cloudformation:props": {
+                        "containerDefinitions": [
+                          {
+                            "essential": true,
+                            "image": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "625806755153.dkr.ecr.us-east-1.",
+                                  {
+                                    "Ref": "AWS::URLSuffix"
+                                  },
+                                  "/python-workers:latest"
+                                ]
+                              ]
+                            },
+                            "name": "QueueProcessingContainer",
+                            "logConfiguration": {
+                              "logDriver": "awslogs",
+                              "options": {
+                                "awslogs-group": {
+                                  "Ref": "QueueProcessingServiceQueueProcessingTaskDefQueueProcessingContainerLogGroupCC92448A"
+                                },
+                                "awslogs-stream-prefix": "QueueProcessingService",
+                                "awslogs-region": "us-east-1"
+                              }
+                            },
+                            "environment": [
+                              {
+                                "name": "REGION",
+                                "value": "us-east-1"
+                              },
+                              {
+                                "name": "AWS_ACCOUNT_ID",
+                                "value": "625806755153"
+                              },
+                              {
+                                "name": "QUEUE_NAME",
+                                "value": {
+                                  "Fn::GetAtt": [
+                                    "QueueProcessingServiceEcsProcessingQueue552F0B37",
+                                    "QueueName"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "cpu": "256",
+                        "executionRoleArn": {
+                          "Fn::GetAtt": [
+                            "QueueProcessingServiceQueueProcessingTaskDefExecutionRole37838985",
+                            "Arn"
+                          ]
+                        },
+                        "family": "pythonqueuetasksQueueProcessingServiceQueueProcessingTaskDef7F5C0188",
+                        "memory": "512",
+                        "networkMode": "awsvpc",
+                        "requiresCompatibilities": [
+                          "FARGATE"
+                        ],
+                        "taskRoleArn": {
+                          "Fn::GetAtt": [
+                            "QueueProcessingServiceQueueProcessingTaskDefTaskRole782B79A6",
+                            "Arn"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "QueueProcessingContainer": {
+                    "id": "QueueProcessingContainer",
+                    "path": "python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/QueueProcessingContainer",
+                    "children": {
+                      "LogGroup": {
+                        "id": "LogGroup",
+                        "path": "python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/QueueProcessingContainer/LogGroup",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/QueueProcessingContainer/LogGroup/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
+                              "aws:cdk:cloudformation:props": {}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ExecutionRole": {
+                    "id": "ExecutionRole",
+                    "path": "python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/ExecutionRole",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/ExecutionRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "ecs-tasks.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/ExecutionRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/ExecutionRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "ecr:BatchCheckLayerAvailability",
+                                        "ecr:GetDownloadUrlForLayer",
+                                        "ecr:BatchGetImage"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::Join": [
+                                          "",
+                                          [
+                                            "arn:",
+                                            {
+                                              "Ref": "AWS::Partition"
+                                            },
+                                            ":ecr:us-east-1:625806755153:repository/python-workers"
+                                          ]
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Action": "ecr:GetAuthorizationToken",
+                                      "Effect": "Allow",
+                                      "Resource": "*"
+                                    },
+                                    {
+                                      "Action": [
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::GetAtt": [
+                                          "QueueProcessingServiceQueueProcessingTaskDefQueueProcessingContainerLogGroupCC92448A",
+                                          "Arn"
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "QueueProcessingServiceQueueProcessingTaskDefExecutionRoleDefaultPolicyA83D332D",
+                                "roles": [
+                                  {
+                                    "Ref": "QueueProcessingServiceQueueProcessingTaskDefExecutionRole37838985"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "QueueProcessingFargateService": {
+                "id": "QueueProcessingFargateService",
+                "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService",
+                "children": {
+                  "Service": {
+                    "id": "Service",
+                    "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/Service",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ECS::Service",
+                      "aws:cdk:cloudformation:props": {
+                        "cluster": {
+                          "Fn::ImportValue": "ECSClusterName"
+                        },
+                        "deploymentConfiguration": {
+                          "maximumPercent": 200,
+                          "minimumHealthyPercent": 50
+                        },
+                        "desiredCount": 0,
+                        "enableEcsManagedTags": false,
+                        "launchType": "FARGATE",
+                        "networkConfiguration": {
+                          "awsvpcConfiguration": {
+                            "assignPublicIp": "DISABLED",
+                            "subnets": [
+                              "subnet-086dacc026d93e411",
+                              "subnet-0679c62d61d12a7a7",
+                              "subnet-06c4f53cb3a0fefc6"
+                            ],
+                            "securityGroups": [
+                              {
+                                "Fn::GetAtt": [
+                                  "QueueProcessingServiceQueueProcessingFargateServiceSecurityGroup8FDF413D",
+                                  "GroupId"
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "serviceName": "queue-processing",
+                        "taskDefinition": {
+                          "Ref": "QueueProcessingServiceQueueProcessingTaskDef4982F68B"
+                        }
+                      }
+                    }
+                  },
+                  "SecurityGroup": {
+                    "id": "SecurityGroup",
+                    "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/SecurityGroup",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/SecurityGroup/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
+                          "aws:cdk:cloudformation:props": {
+                            "groupDescription": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/SecurityGroup",
+                            "securityGroupEgress": [
+                              {
+                                "cidrIp": "0.0.0.0/0",
+                                "description": "Allow all outbound traffic by default",
+                                "ipProtocol": "-1"
+                              }
+                            ],
+                            "vpcId": "vpc-0eef0b196786c4b31"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ScalingRole": {
+                    "id": "ScalingRole",
+                    "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/ScalingRole"
+                  },
+                  "TaskCount": {
+                    "id": "TaskCount",
+                    "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount",
+                    "children": {
+                      "Target": {
+                        "id": "Target",
+                        "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalableTarget",
+                              "aws:cdk:cloudformation:props": {
+                                "maxCapacity": 10,
+                                "minCapacity": 0,
+                                "resourceId": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "service/",
+                                      {
+                                        "Fn::ImportValue": "ECSClusterName"
+                                      },
+                                      "/",
+                                      {
+                                        "Fn::GetAtt": [
+                                          "QueueProcessingServiceQueueProcessingFargateService0340DB9F",
+                                          "Name"
+                                        ]
+                                      }
+                                    ]
+                                  ]
+                                },
+                                "roleArn": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":iam::625806755153:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService"
+                                    ]
+                                  ]
+                                },
+                                "scalableDimension": "ecs:service:DesiredCount",
+                                "serviceNamespace": "ecs"
+                              }
+                            }
+                          },
+                          "CpuScaling": {
+                            "id": "CpuScaling",
+                            "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/CpuScaling",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/CpuScaling/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalingPolicy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyName": "pythonqueuetasksQueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetCpuScaling7632C00B",
+                                    "policyType": "TargetTrackingScaling",
+                                    "scalingTargetId": {
+                                      "Ref": "QueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetA9D54444"
+                                    },
+                                    "targetTrackingScalingPolicyConfiguration": {
+                                      "predefinedMetricSpecification": {
+                                        "predefinedMetricType": "ECSServiceAverageCPUUtilization"
+                                      },
+                                      "targetValue": 50
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "QueueMessagesVisibleScaling": {
+                            "id": "QueueMessagesVisibleScaling",
+                            "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/QueueMessagesVisibleScaling",
+                            "children": {
+                              "LowerPolicy": {
+                                "id": "LowerPolicy",
+                                "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/QueueMessagesVisibleScaling/LowerPolicy",
+                                "children": {
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/QueueMessagesVisibleScaling/LowerPolicy/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalingPolicy",
+                                      "aws:cdk:cloudformation:props": {
+                                        "policyName": "pythonqueuetasksQueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingLowerPolicyA63B61A7",
+                                        "policyType": "StepScaling",
+                                        "scalingTargetId": {
+                                          "Ref": "QueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetA9D54444"
+                                        },
+                                        "stepScalingPolicyConfiguration": {
+                                          "adjustmentType": "ChangeInCapacity",
+                                          "metricAggregationType": "Maximum",
+                                          "stepAdjustments": [
+                                            {
+                                              "metricIntervalUpperBound": 0,
+                                              "scalingAdjustment": -1
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "LowerAlarm": {
+                                "id": "LowerAlarm",
+                                "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/QueueMessagesVisibleScaling/LowerAlarm",
+                                "children": {
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/QueueMessagesVisibleScaling/LowerAlarm/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
+                                      "aws:cdk:cloudformation:props": {
+                                        "comparisonOperator": "LessThanOrEqualToThreshold",
+                                        "evaluationPeriods": 1,
+                                        "alarmActions": [
+                                          {
+                                            "Ref": "QueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingLowerPolicy332E2644"
+                                          }
+                                        ],
+                                        "alarmDescription": "Lower threshold scaling alarm",
+                                        "dimensions": [
+                                          {
+                                            "name": "QueueName",
+                                            "value": {
+                                              "Fn::GetAtt": [
+                                                "QueueProcessingServiceEcsProcessingQueue552F0B37",
+                                                "QueueName"
+                                              ]
+                                            }
+                                          }
+                                        ],
+                                        "metricName": "ApproximateNumberOfMessagesVisible",
+                                        "namespace": "AWS/SQS",
+                                        "period": 300,
+                                        "statistic": "Maximum",
+                                        "threshold": 0
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "UpperPolicy": {
+                                "id": "UpperPolicy",
+                                "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/QueueMessagesVisibleScaling/UpperPolicy",
+                                "children": {
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/QueueMessagesVisibleScaling/UpperPolicy/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalingPolicy",
+                                      "aws:cdk:cloudformation:props": {
+                                        "policyName": "pythonqueuetasksQueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingUpperPolicyE4A1B988",
+                                        "policyType": "StepScaling",
+                                        "scalingTargetId": {
+                                          "Ref": "QueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetA9D54444"
+                                        },
+                                        "stepScalingPolicyConfiguration": {
+                                          "adjustmentType": "ChangeInCapacity",
+                                          "metricAggregationType": "Maximum",
+                                          "stepAdjustments": [
+                                            {
+                                              "metricIntervalLowerBound": 0,
+                                              "metricIntervalUpperBound": 400,
+                                              "scalingAdjustment": 1
+                                            },
+                                            {
+                                              "metricIntervalLowerBound": 400,
+                                              "scalingAdjustment": 5
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "UpperAlarm": {
+                                "id": "UpperAlarm",
+                                "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/QueueMessagesVisibleScaling/UpperAlarm",
+                                "children": {
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/QueueMessagesVisibleScaling/UpperAlarm/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
+                                      "aws:cdk:cloudformation:props": {
+                                        "comparisonOperator": "GreaterThanOrEqualToThreshold",
+                                        "evaluationPeriods": 1,
+                                        "alarmActions": [
+                                          {
+                                            "Ref": "QueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingUpperPolicy84DD739A"
+                                          }
+                                        ],
+                                        "alarmDescription": "Upper threshold scaling alarm",
+                                        "dimensions": [
+                                          {
+                                            "name": "QueueName",
+                                            "value": {
+                                              "Fn::GetAtt": [
+                                                "QueueProcessingServiceEcsProcessingQueue552F0B37",
+                                                "QueueName"
+                                              ]
+                                            }
+                                          }
+                                        ],
+                                        "metricName": "ApproximateNumberOfMessagesVisible",
+                                        "namespace": "AWS/SQS",
+                                        "period": 300,
+                                        "statistic": "Maximum",
+                                        "threshold": 100
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "python-queue-tasks/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "python-queue-tasks/CDKMetadata/Default"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

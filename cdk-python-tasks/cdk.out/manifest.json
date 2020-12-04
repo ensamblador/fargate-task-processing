@@ -1,0 +1,503 @@
+{
+  "version": "7.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "python-queue-tasks": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://625806755153/us-east-1",
+      "properties": {
+        "templateFile": "python-queue-tasks.template.json"
+      },
+      "metadata": {
+        "/python-queue-tasks/QueueProcessingService/EcsProcessingDeadLetterQueue/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceEcsProcessingDeadLetterQueueD47A7C6B",
+            "trace": [
+              "new Queue (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-sqs/lib/queue.js:45:23)",
+              "new QueueProcessingServiceBase (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/queue-processing-service-base.js:28:36)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:14:9)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/EcsProcessingQueue/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceEcsProcessingQueue552F0B37",
+            "trace": [
+              "new Queue (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-sqs/lib/queue.js:45:23)",
+              "new QueueProcessingServiceBase (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/queue-processing-service-base.js:31:29)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:14:9)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/SQSDeadLetterQueue": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceSQSDeadLetterQueueE9058015",
+            "trace": [
+              "new QueueProcessingServiceBase (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/queue-processing-service-base.js:37:13)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:14:9)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/SQSDeadLetterQueueArn": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceSQSDeadLetterQueueArnF7C6D3A8",
+            "trace": [
+              "new QueueProcessingServiceBase (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/queue-processing-service-base.js:38:13)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:14:9)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/SQSQueue": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceSQSQueue1AD9CD9C",
+            "trace": [
+              "new QueueProcessingServiceBase (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/queue-processing-service-base.js:59:9)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:14:9)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/SQSQueueArn": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceSQSQueueArn8C4AE4AE",
+            "trace": [
+              "new QueueProcessingServiceBase (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/queue-processing-service-base.js:60:9)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:14:9)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/TaskRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingTaskDefTaskRole782B79A6",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-iam/lib/role.js:62:22)",
+              "new TaskDefinition (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/task-definition.js:66:43)",
+              "new FargateTaskDefinition (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/fargate/fargate-task-definition.js:19:9)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:16:31)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/TaskRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingTaskDefTaskRoleDefaultPolicyAE808B19",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-iam/lib/policy.js:49:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-iam/lib/role.js:193:34)",
+              "Function.addToPrincipal (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-iam/lib/grant.js:82:65)",
+              "Function.addToPrincipalOrResource (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-iam/lib/grant.js:39:30)",
+              "Queue.grant (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-sqs/lib/queue-base.js:100:26)",
+              "Queue.grantConsumeMessages (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-sqs/lib/queue-base.js:54:26)",
+              "QueueProcessingFargateService.grantPermissionsToService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/queue-processing-service-base.js:83:23)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:42:14)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingTaskDef4982F68B",
+            "trace": [
+              "new TaskDefinition (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/task-definition.js:69:25)",
+              "new FargateTaskDefinition (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/fargate/fargate-task-definition.js:19:9)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:16:31)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/QueueProcessingContainer/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingTaskDefQueueProcessingContainerLogGroupCC92448A",
+            "trace": [
+              "new LogGroup (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-logs/lib/log-group.js:142:26)",
+              "AwsLogDriver.bind (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/log-drivers/aws-log-driver.js:28:48)",
+              "new ContainerDefinition (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/container-definition.js:83:50)",
+              "FargateTaskDefinition.addContainer (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/task-definition.js:191:16)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:21:29)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/ExecutionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingTaskDefExecutionRole37838985",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-iam/lib/role.js:62:22)",
+              "FargateTaskDefinition.obtainExecutionRole (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/task-definition.js:245:35)",
+              "EcrImage.bind (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/images/ecr.js:22:70)",
+              "new ContainerDefinition (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/container-definition.js:81:40)",
+              "FargateTaskDefinition.addContainer (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/task-definition.js:191:16)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:21:29)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingTaskDef/ExecutionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingTaskDefExecutionRoleDefaultPolicyA83D332D",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-iam/lib/policy.js:49:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-iam/lib/role.js:193:34)",
+              "Function.addToPrincipal (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-iam/lib/grant.js:82:65)",
+              "Function.addToPrincipalOrResource (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-iam/lib/grant.js:39:30)",
+              "Import.grant (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecr/lib/repository.js:118:26)",
+              "Import.grantPull (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecr/lib/repository.js:130:26)",
+              "EcrImage.bind (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/images/ecr.js:22:25)",
+              "new ContainerDefinition (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/container-definition.js:81:40)",
+              "FargateTaskDefinition.addContainer (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/task-definition.js:191:16)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:21:29)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/Service": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingFargateService0340DB9F",
+            "trace": [
+              "new BaseService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:112:25)",
+              "new FargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/fargate/fargate-service.js:53:9)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:30:24)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingFargateServiceSecurityGroup8FDF413D",
+            "trace": [
+              "new SecurityGroup (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:193:30)",
+              "FargateService.configureAwsVpcNetworkingWithSecurityGroups (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:366:31)",
+              "new FargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/fargate/fargate-service.js:71:14)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:30:24)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetA9D54444",
+            "trace": [
+              "new ScalableTarget (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/scalable-target.js:37:26)",
+              "new BaseScalableAttribute (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/base-scalable-attribute.js:27:23)",
+              "new ScalableTaskCount (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/scalable-task-count.js:13:9)",
+              "FargateService.autoScaleTaskCount (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/base-service.js:248:41)",
+              "QueueProcessingFargateService.configureAutoscalingForService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/queue-processing-service-base.js:68:39)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:41:14)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/CpuScaling/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetCpuScaling330150E9",
+            "trace": [
+              "new TargetTrackingScalingPolicy (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/target-tracking-scaling-policy.js:21:26)",
+              "ScalableTarget.scaleToTrackMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/scalable-target.js:94:16)",
+              "ScalableTaskCount.doScaleToTrackMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/base-scalable-attribute.js:52:21)",
+              "ScalableTaskCount.scaleOnCpuUtilization (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/scalable-task-count.js:31:22)",
+              "QueueProcessingFargateService.configureAutoscalingForService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/queue-processing-service-base.js:69:23)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:41:14)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/QueueMessagesVisibleScaling/LowerPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingLowerPolicy332E2644",
+            "trace": [
+              "new StepScalingAction (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/step-scaling-action.js:25:26)",
+              "new StepScalingPolicy (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/step-scaling-policy.js:30:32)",
+              "ScalableTarget.scaleOnMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/scalable-target.js:88:16)",
+              "ScalableTaskCount.doScaleOnMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/base-scalable-attribute.js:46:21)",
+              "ScalableTaskCount.scaleOnMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/scalable-task-count.js:25:22)",
+              "QueueProcessingFargateService.configureAutoscalingForService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/queue-processing-service-base.js:72:23)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:41:14)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/QueueMessagesVisibleScaling/LowerAlarm/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingLowerAlarm20C30A06",
+            "trace": [
+              "new Alarm (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-cloudwatch/lib/alarm.js:66:23)",
+              "new StepScalingPolicy (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/step-scaling-policy.js:44:31)",
+              "ScalableTarget.scaleOnMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/scalable-target.js:88:16)",
+              "ScalableTaskCount.doScaleOnMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/base-scalable-attribute.js:46:21)",
+              "ScalableTaskCount.scaleOnMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/scalable-task-count.js:25:22)",
+              "QueueProcessingFargateService.configureAutoscalingForService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/queue-processing-service-base.js:72:23)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:41:14)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/QueueMessagesVisibleScaling/UpperPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingUpperPolicy84DD739A",
+            "trace": [
+              "new StepScalingAction (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/step-scaling-action.js:25:26)",
+              "new StepScalingPolicy (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/step-scaling-policy.js:56:32)",
+              "ScalableTarget.scaleOnMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/scalable-target.js:88:16)",
+              "ScalableTaskCount.doScaleOnMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/base-scalable-attribute.js:46:21)",
+              "ScalableTaskCount.scaleOnMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/scalable-task-count.js:25:22)",
+              "QueueProcessingFargateService.configureAutoscalingForService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/queue-processing-service-base.js:72:23)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:41:14)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/QueueProcessingService/QueueProcessingFargateService/TaskCount/Target/QueueMessagesVisibleScaling/UpperAlarm/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueueProcessingServiceQueueProcessingFargateServiceTaskCountTargetQueueMessagesVisibleScalingUpperAlarm2660BEDF",
+            "trace": [
+              "new Alarm (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-cloudwatch/lib/alarm.js:66:23)",
+              "new StepScalingPolicy (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/step-scaling-policy.js:70:31)",
+              "ScalableTarget.scaleOnMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/scalable-target.js:88:16)",
+              "ScalableTaskCount.doScaleOnMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-applicationautoscaling/lib/base-scalable-attribute.js:46:21)",
+              "ScalableTaskCount.scaleOnMetric (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs/lib/base/scalable-task-count.js:25:22)",
+              "QueueProcessingFargateService.configureAutoscalingForService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/base/queue-processing-service-base.js:72:23)",
+              "new QueueProcessingFargateService (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/aws-ecs-patterns/lib/fargate/queue-processing-fargate-service.js:41:14)",
+              "obj._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:49)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "Kernel._create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3556:26)",
+              "Kernel.create (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3300:21)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ],
+        "/python-queue-tasks/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
+              "construct (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/core/lib/private/synthesis.js:127:9)",
+              "visit (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/core/lib/private/synthesis.js:181:9)",
+              "visit (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/core/lib/private/synthesis.js:178:9)",
+              "injectMetadataResources (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/core/lib/private/synthesis.js:116:5)",
+              "Object.synthesize (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/core/lib/private/synthesis.js:16:5)",
+              "App.synth (/tmp/jsii-kernel-2RJZ21/node_modules/@aws-cdk/core/lib/stage.js:90:41)",
+              "_wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3380:51)",
+              "Kernel._wrapSandboxCode (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4040:16)",
+              "ret._ensureSync (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3380:25)",
+              "Kernel._ensureSync (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:4017:20)",
+              "Kernel.invoke (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:3379:26)",
+              "KernelHost.processRequest (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13119:28)",
+              "KernelHost.run (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13057:14)",
+              "Immediate.setImmediate [as _onImmediate] (/usr/local/lib/python3.7/site-packages/jsii/_embedded/jsii/jsii-runtime.js:13060:37)",
+              "runCallback (timers.js:705:18)",
+              "tryOnImmediate (timers.js:676:5)",
+              "processImmediate (timers.js:658:5)"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
